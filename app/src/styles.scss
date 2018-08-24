@@ -1,0 +1,47 @@
+/*Importing default angular material css theme. */
+
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "nDefaults.scss";
+
+body,.mat-card-content,p, .mat-card-title{
+    color: #6a6c6f;
+    font-family: 'Raleway', sans-serif;
+}
+mat-card-subtitle{
+    font-weight: bold;
+    color: slategray !important;
+}
+h1, h2, h3, h4, h5, h6, {
+    font-weight: 700;
+    color: #696c6e;
+    font-family: 'Raleway', sans-serif;
+}
+.mat-expansion-panel {
+    width: 224px;
+    box-shadow:none !important;
+    background: #fafafa !important;
+}
+.mat-card-image:first-child {
+    margin-top: 0 !important;
+}
+.mat-toolbar {
+    height: 55px;
+    border: 0;
+    z-index: 10;
+    background: #ff0909 !important;
+    color:white;
+}
+.row1{
+    padding:25px 40px 40px 40px;
+    background: #c1c1bd;
+}
+.mat-drawer-container[fullscreen]{
+    top:65px !important;
+}
+.sub-top{
+    padding-top: 8px !important;
+}
+.user_content{
+     font-weight: 100 !important;
+}
+

@@ -1,0 +1,27 @@
+<div fxFill fxLayout="row" *ngIf="mode == 'click-fullscreen' && canvasMode !== 'fullscreen'" class="signature-component-border">
+    <div fxFlex="calc(100%-56px)" fxLayout="column">
+        <img [src]="imageDataValue" alt="" fxFill>
+    </div>
+    <div fxFlex="56px" fxLayoutAlign=" center" class="signature-component-border">
+        <button mat-icon-button (click)="showCanvas()">
+            <mat-icon>mode_edit</mat-icon>
+        </button>
+    </div>
+</div>
+<div fxFill fxLayout="column" class="signature-component-border" [fxShow]="(mode == 'click-fullscreen' && canvasMode == 'fullscreen') || mode == 'responsive'" [ngClass]="{'signature-canvas-fullscreen': classAbs}">
+    <canvas #signaturecanvas></canvas>
+    <div fxFlex="56px" fxLayoutAlign="center center" class="signature-component-border">
+        <button mat-icon-button (click)="undoCanvas()">
+            <mat-icon>undo</mat-icon>
+        </button>
+        <button mat-icon-button (click)="clearCanvas()">
+            <mat-icon>loop</mat-icon>
+        </button>
+        <button mat-icon-button (click)="saveCavas()">
+            <mat-icon>save</mat-icon>
+        </button>
+        <button mat-icon-button (click)="canvasMode = 'responsive'; cancel()">
+            <mat-icon>clear</mat-icon>
+        </button>
+    </div>
+</div>

@@ -1,0 +1,6 @@
+<mat-button-toggle-group #group="matButtonToggleGroup" [vertical]="align == 'vertical'? true: false">
+    <mat-button-toggle *ngFor="let option of toggleOptions; let i = index;" [value]="option.value" [disabled]="option.disabled || disabledIndex == i" [checked]="option.checked || checkedIndex == i" (click)="optionClicked(i)" fxLayoutAlign="center center">
+        <mat-icon *ngIf="option.icon">{{option.icon}}</mat-icon>
+        <span *ngIf="!option.icon && option.value">{{option.value}}</span>
+    </mat-button-toggle>
+</mat-button-toggle-group>

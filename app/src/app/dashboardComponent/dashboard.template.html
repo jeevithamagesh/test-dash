@@ -1,0 +1,187 @@
+<div id="angularRoot">
+  <div fxLayout="column" fxShow="true" fxHide="false">
+    <mat-toolbar>
+      <div fxLayout="row" fxLayoutGap="20px" fxShow="true" fxHide="false">
+        <div fxLayout="row" fxLayoutGap="50px" fxShow="true" fxHide="false">
+          <mat-icon class="material-icons" (click)="sidenav.toggle()">menu</mat-icon>
+        </div>
+      </div>
+      <div fxLayout="row" fxFlex="100" fxLayoutGap="45px" fxLayoutAlign="end end" fxShow="true" fxHide="false">
+        <mat-icon class="material-icons" matTooltip="Notification">speaker_notes</mat-icon>
+        <mat-icon class="material-icons" matTooltip="Apps">apps</mat-icon>
+        <mat-icon class="material-icons" matTooltip="Login" [routerLink]="&apos;adminlogin&apos;">input</mat-icon>
+        <mat-icon class="material-icons" matTooltip="Events">event_note</mat-icon>
+      </div>
+    </mat-toolbar>
+  </div>
+  <div fxLayout="column" fxShow="true" fxHide="false">
+    <router-outlet></router-outlet>
+    <mat-sidenav-container fullscreen="">
+      <mat-sidenav #sidenav="" mode="over" opened="true">
+        <div fxLayout="column" fxLayoutGap="5px" fxLayoutAlign="start start" fxShow="true" fxHide="false">
+          <mat-card>
+            <div fxLayout="column" fxLayoutAlign="center center" fxShow="true" fxHide="false">
+              <img mat-card-image="" style="width:40%" imgSrc="Web/Icons/employ.png">
+              <mat-card-subtitle>Admin</mat-card-subtitle>
+              <p class="user_conetent">Updated income </p>
+              <mat-card-title>$260 104,200</mat-card-title>
+            </div>
+          </mat-card>
+          <div fxLayout="row" fxShow="true" fxHide="false">
+            <mat-accordion>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header *ngFor="let card of menu">
+                  <mat-panel-title>
+                    {{card.nav_one}}
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-nav-list *ngFor="let card of menuitem">
+                  <a mat-list-item=""> {{card.navitem}}</a>
+                </mat-nav-list>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </div>
+        </div>
+      </mat-sidenav>
+      <div fxLayout="column" class="row1" fxFlex="100" fxLayoutGap="25px" fxShow="true" fxHide="false">
+        <div fxLayout="column" fxLayoutAlign="center center" fxShow="true" fxHide="false">
+          <mat-card-title>Welcome to User Dashboard Theme</mat-card-title>
+          <mat-card-subtitle>Special Admin Theme for medium and large web applications with very clean and aesthetic style and feel.</mat-card-subtitle>
+        </div>
+        <mat-card>
+          <div fxLayout="row" fxLayoutAlign="center center" fxShow="true" fxHide="false" fxLayout.xs="column">
+            <div fxLayout="column" class="row1_on1" fxFlex="30" fxLayoutAlign="space-around center" fxShow="true" fxHide="false" *ngFor="let card of userviews">
+              <mat-card-subtitle>{{card.cardSubTitle}}</mat-card-subtitle>
+              <h1>{{card.cardTitle}}</h1>
+              <mat-card-subtitle>{{card.cardContent}}</mat-card-subtitle>
+            </div>
+            <div fxLayout="column" class="row1_on2" fxFlex="40" fxLayoutAlign="space-around center" fxShow="true" fxHide="false" fxLayout.xs="column" fxFlex.xs="100">
+              <canvas baseChart="" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" chartType="line" (chartHover)="chartHovered($event)" (chartClick)="hartClicked($event)"></canvas>
+            </div>
+            <div fxLayout="column" class="row1_on3" fxFlex="30" fxLayoutAlign="space-around center" fxShow="true" fxHide="false" *ngFor="let card of activeusers">
+              <mat-card-subtitle>{{card.cardSubTitle}}</mat-card-subtitle>
+              <h1>{{card.cardTitle}}</h1>
+              <mat-card-subtitle>{{card.cardContent}}</mat-card-subtitle>
+            </div>
+          </div>
+        </mat-card>
+        <div fxLayout="row" fxLayoutGap="20px" fxShow="true" fxHide="false" fxLayout.xs="column">
+          <div fxLayout="column" fxFlex="25" fxShow="true" fxHide="false" *ngFor="let card of useractivity" fxFlex.sm="49">
+            <mat-card style="     height: 100%;">
+              <div fxLayout="row" fxLayoutAlign="space-between start" fxShow="true" fxHide="false">
+                <div fxLayout="row" fxShow="true" fxHide="false">
+                  <mat-card-subtitle>{{card.cardSubTitle}}</mat-card-subtitle>
+                </div>
+                <div fxLayout="row" fxShow="true" fxHide="false">
+                  <mat-icon style="font-size: 30px;" class="material-icons">{{card.cardIcon}}</mat-icon>
+                </div>
+              </div>
+              <div fxLayout="column" fxShow="true" fxHide="false">
+                <mat-card-title style="color:#ff1c00">{{card.cardTitle}}</mat-card-title>
+                <mat-card-subtitle>{{card.cardSubTitle}}</mat-card-subtitle>
+                <mat-card-subtitle class="user_content">{{card.cardDesc}}</mat-card-subtitle>
+                <mat-progress-bar style="color:#2cab44 !important;" mode="Buffer" value="{{card.cardbuffer}}"></mat-progress-bar>
+                <div fxLayout="row" class="sub-top" fxLayoutGap="10px" fxLayoutAlign="space-between start" fxShow="true" fxHide="false">
+                  <div fxLayout="column" fxShow="true" fxHide="false">
+                    <mat-card-subtitle>{{card.cardinfo}}</mat-card-subtitle>
+                    <mat-card-subtitle style="font-size:18px;">{{card.cardvalue}}</mat-card-subtitle>
+                  </div>
+                  <div fxLayout="column" fxShow="true" fxHide="false">
+                    <mat-card-subtitle>{{card.cardinfo1}}</mat-card-subtitle>
+                    <mat-card-subtitle style="font-size:18px;">{{card.cardvalue2}}</mat-card-subtitle>
+                  </div>
+                </div>
+              </div>
+            </mat-card>
+          </div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="20px" fxShow="true" fxHide="false" fxLayout.xs="column">
+          <div fxLayout="column" fxFlex="30" fxShow="true" fxHide="false" *ngFor="let card of currentactivity">
+            <mat-card style="  height: 100%;">
+              <div fxLayout="row" fxLayoutAlign="space-between start" fxShow="true" fxHide="false">
+                <div fxLayout="row" fxLayoutAlign="start start" fxShow="true" fxHide="false">
+                  <mat-card-subtitle>{{card.cardSubTitle}}</mat-card-subtitle>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="end start" fxShow="true" fxHide="false">
+                  <mat-icon>{{card.cardIcon}}</mat-icon>
+                </div>
+              </div>
+              <div fxLayout="column" fxShow="true" fxHide="false">
+                <mat-card-subtitle>{{card.cardTitle1}}</mat-card-subtitle>
+                <mat-card-subtitle class="user_content">{{card.cardDesc}}</mat-card-subtitle>
+              </div>
+              <div fxLayout="column" fxShow="true" fxHide="false">
+                <div fxLayout="row" fxLayoutAlign="space-between end" fxShow="true" fxHide="false">
+                  <div fxLayout="column" fxShow="true" fxHide="false">
+                    <mat-card-title>{{card.cardinfo}}</mat-card-title>
+                    <mat-card-subtitle>{{card.cardvalue}}</mat-card-subtitle>
+                  </div>
+                  <div fxLayout="column" fxShow="true" fxHide="false">
+                    <mat-card-title>{{card.cardinfo1}}</mat-card-title>
+                    <mat-card-subtitle>{{card.cardvalue1}}</mat-card-subtitle>
+                  </div>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="space-between end" fxShow="true" fxHide="false">
+                  <div fxLayout="column" fxShow="true" fxHide="false">
+                    <mat-card-title>{{card.cardinfo2}}</mat-card-title>
+                    <mat-card-subtitle>{{card.cardvalue2}}</mat-card-subtitle>
+                  </div>
+                  <div fxLayout="column" fxShow="true" fxHide="false">
+                    <mat-card-title>{{card.cardinfo3}}</mat-card-title>
+                    <mat-card-subtitle>{{card.cardvalue3}}</mat-card-subtitle>
+                  </div>
+                </div>
+              </div>
+            </mat-card>
+          </div>
+          <div fxLayout="column" fxFlex="40" fxShow="true" fxHide="false" *ngFor="let card of userimprovements">
+            <mat-card style="  height: 100%;">
+              <div fxLayout="row" fxLayoutAlign="space-between start" fxShow="true" fxHide="false">
+                <div fxLayout="row" fxShow="true" fxHide="false">
+                  <mat-card-subtitle>{{card.cardSubTitle}}</mat-card-subtitle>
+                </div>
+                <div fxLayout="row" fxShow="true" fxHide="false">
+                  <mat-icon>{{card.cardIcon}}</mat-icon>
+                </div>
+              </div>
+              <div fxLayout="column" fxShow="true" fxHide="false">
+                <mat-card-subtitle class="user_content">{{card.cardDesc}}</mat-card-subtitle>
+              </div>
+              <div fxLayout="row" fxShow="true" fxHide="false">
+                <canvas baseChart="" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" chartType="line"></canvas>
+              </div>
+            </mat-card>
+          </div>
+          <div fxLayout="column" fxFlex="30" fxShow="true" fxHide="false">
+            <mat-card style="  height: 100%;">
+              <div fxLayout="row" fxLayoutAlign="space-between start" fxShow="true" fxHide="false" *ngFor="let card of lastactiveusers">
+                <div fxLayout="row" fxShow="true" fxHide="false">
+                  <mat-card-subtitle>{{card.cardSubTitle}}</mat-card-subtitle>
+                </div>
+                <div fxLayout="row" fxShow="true" fxHide="false">
+                  <mat-icon>{{card. cardIcon}}</mat-icon>
+                </div>
+              </div>
+              <div fxLayout="row" fxLayoutAlign="space-between start" fxShow="true" fxHide="false" *ngFor="let card of useritems">
+                <div fxLayout="row" fxShow="true" fxHide="false">
+                  <div fxLayout="column" fxShow="true" fxHide="false">
+                    <mat-card-title>{{card.cardTitle}}</mat-card-title>
+                    <mat-card-subtitle>{{card.cardSubTitle}}</mat-card-subtitle>
+                  </div>
+                </div>
+                <div fxLayout="row" fxShow="true" fxHide="false">
+                  <mat-card-subtitle>{{card.cardSubTitle1}}</mat-card-subtitle>
+                </div>
+              </div>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+      <footer style="background-color:#ff0909;width:100%;">
+        <div fxLayout="row" style="width:100%" fxLayoutAlign="center center" fxShow="true" fxHide="false">
+          <h6 style="color:white">Neutrinos India Pvt Ltd @2018</h6>
+        </div>
+      </footer>
+    </mat-sidenav-container>
+  </div>
+</div>

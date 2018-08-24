@@ -1,0 +1,42 @@
+{
+    "routes": [
+        {
+            "path": "dashboard",
+            "component": "dashboardComponent",
+            "pathMatch": "",
+            "redirectTo": "",
+            "resolve": "",
+            "data": "",
+            "canActivate": "",
+            "children": [
+                {
+                    "path": "user",
+                    "component": "userComponent",
+                    "pathMatch": "",
+                    "redirectTo": "",
+                    "resolve": "",
+                    "data": "",
+                    "canActivate": ""
+                }
+            ]
+        },
+        {
+            "path": "''",
+            "component": "",
+            "pathMatch": "full",
+            "redirectTo": "dashboard/user",
+            "resolve": "",
+            "data": "",
+            "canActivate": ""
+        },
+        {
+            "path": "**",
+            "component": "PageNotFoundComponent",
+            "pathMatch": "",
+            "redirectTo": "",
+            "resolve": "",
+            "data": "",
+            "canActivate": ""
+        }
+    ]
+}
